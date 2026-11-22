@@ -1,6 +1,7 @@
 import streamlit as str_lit
 import pandas as pd
 import plotly.express as px
+from pathlib import Path
 
 # Page Configuration
 str_lit.set_page_config(
@@ -8,11 +9,12 @@ str_lit.set_page_config(
     layout="wide"
 )
 
-# Load Data 
+# Load Data
 @str_lit.cache_data
 def load_data():
     # Read the Excel file
-    df = pd.read_excel("sellers.xlsx", sheet_name="gc_QRO.PM3000.5.1813.18212_full")
+    excel_path = Path(__file__).resolve().parent / "sellers.xlsx"
+    df = pd.read_excel(excel_path, sheet_name="gc_QRO.PM3000.5.1813.18212_full")
     return df
 
 df = load_data()
