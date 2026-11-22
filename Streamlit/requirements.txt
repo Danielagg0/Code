@@ -1,4 +1,4 @@
-Streamlit, version 1.67.0
+streamlit==1.67.0
 pandas
 numpy
 matplotlib
